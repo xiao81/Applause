@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.PriorityQueue;
+
 @RestController
 public class TesterMatchingServiceController {
 
@@ -17,9 +21,8 @@ public class TesterMatchingServiceController {
     private TesterMatchingService testerMatchingService;
 
     @RequestMapping(path = "/tester", method = RequestMethod.GET)
-    public User greeting(@RequestParam(value = "country", defaultValue = "ALL") String country,
-                         @RequestParam(value = "device", defaultValue = "ALL") String device) {
-
+    public List<User> mainService(@RequestParam(value = "country", defaultValue = "ALL") String country,
+                            @RequestParam(value = "device", defaultValue = "ALL") String device) {
         return testerMatchingService.getUser(country, device);
     }
 }

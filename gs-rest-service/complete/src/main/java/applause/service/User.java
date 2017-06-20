@@ -5,7 +5,8 @@ import lombok.Data;
 @Data
 public class User {
 
-    private final String id;
+    private final String country;
     private final String fullName;
+    private final int bugNum;
 
 }
